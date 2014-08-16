@@ -1,55 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20140816 11:44:16.890" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
-<suite source="E:\projects\Robot\test\search_ebol.txt" id="s1" name="Search Ebol">
-<test id="s1-t1" name="search ebola">
+<robot generated="20140816 12:10:59.841" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<suite source="E:\projects\Robot\ATDDWithRobotFramwork\testcases\search_ebol.txt" id="s1" name="Search Ebol">
+<test id="s1-t1" name="ค้นหาข้อมูลจาก My Web Go">
+<kw type="kw" name="ค้นหาข้อมูลจาก">
+<doc></doc>
+<arguments>
+<arg>อีโบลา</arg>
+<arg>อีโบลา</arg>
+</arguments>
 <kw type="kw" name="Selenium2Library.Open Browser">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
-<arg>http://localhost:4399/</arg>
+<arg>${URL}</arg>
 </arguments>
-<msg timestamp="20140816 11:44:17.489" level="INFO">Opening browser 'firefox' to base url 'http://localhost:4399/'</msg>
-<status status="PASS" endtime="20140816 11:44:29.537" starttime="20140816 11:44:17.488"></status>
+<msg timestamp="20140816 12:11:00.619" level="INFO">Opening browser 'firefox' to base url 'http://localhost:4399/'</msg>
+<status status="PASS" endtime="20140816 12:11:19.712" starttime="20140816 12:11:00.618"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Input Text">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>id=keysearch</arg>
-<arg>ebola</arg>
+<arg>${keysearch}</arg>
 </arguments>
-<msg timestamp="20140816 11:44:29.541" level="INFO">Typing text 'ebola' into text field 'id=keysearch'</msg>
-<status status="PASS" endtime="20140816 11:44:30.177" starttime="20140816 11:44:29.539"></status>
+<msg timestamp="20140816 12:11:19.715" level="INFO">Typing text 'อีโบลา' into text field 'id=keysearch'</msg>
+<status status="PASS" endtime="20140816 12:11:20.653" starttime="20140816 12:11:19.713"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Click Button">
 <doc>Clicks a button identified by `locator`.</doc>
 <arguments>
 <arg>id=go</arg>
 </arguments>
-<msg timestamp="20140816 11:44:30.181" level="INFO">Clicking button 'id=go'.</msg>
-<status status="PASS" endtime="20140816 11:44:30.782" starttime="20140816 11:44:30.179"></status>
+<msg timestamp="20140816 12:11:20.655" level="INFO">Clicking button 'id=go'.</msg>
+<status status="PASS" endtime="20140816 12:11:23.393" starttime="20140816 12:11:20.655"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Wait Until Page Contains">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
+<arg>${expected result}</arg>
+</arguments>
+<status status="PASS" endtime="20140816 12:11:23.439" starttime="20140816 12:11:23.394"></status>
+</kw>
+<status status="PASS" endtime="20140816 12:11:23.439" starttime="20140816 12:11:00.615"></status>
+</kw>
+<kw type="kw" name="ค้นหาข้อมูลจาก">
+<doc></doc>
+<arguments>
+<arg>ebola</arg>
 <arg>ebola</arg>
 </arguments>
-<status status="PASS" endtime="20140816 11:44:30.828" starttime="20140816 11:44:30.784"></status>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg timestamp="20140816 12:11:23.444" level="INFO">Opening browser 'firefox' to base url 'http://localhost:4399/'</msg>
+<status status="PASS" endtime="20140816 12:11:36.765" starttime="20140816 12:11:23.443"></status>
 </kw>
-<kw type="teardown" name="Selenium2Library.Close Browser">
-<doc>Closes the current browser.</doc>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=keysearch</arg>
+<arg>${keysearch}</arg>
+</arguments>
+<msg timestamp="20140816 12:11:36.768" level="INFO">Typing text 'ebola' into text field 'id=keysearch'</msg>
+<status status="PASS" endtime="20140816 12:11:37.251" starttime="20140816 12:11:36.767"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=go</arg>
+</arguments>
+<msg timestamp="20140816 12:11:37.254" level="INFO">Clicking button 'id=go'.</msg>
+<status status="PASS" endtime="20140816 12:11:38.317" starttime="20140816 12:11:37.253"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${expected result}</arg>
+</arguments>
+<status status="PASS" endtime="20140816 12:11:38.377" starttime="20140816 12:11:38.320"></status>
+</kw>
+<status status="PASS" endtime="20140816 12:11:38.379" starttime="20140816 12:11:23.441"></status>
+</kw>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140816 11:44:31.160" starttime="20140816 11:44:30.830"></status>
+<status status="PASS" endtime="20140816 12:11:39.158" starttime="20140816 12:11:38.382"></status>
 </kw>
 <doc></doc>
 <tags>
-<tag>ebola</tag>
 </tags>
-<status status="PASS" endtime="20140816 11:44:31.161" critical="yes" starttime="20140816 11:44:17.485"></status>
+<status status="PASS" endtime="20140816 12:11:39.159" critical="yes" starttime="20140816 12:11:00.608"></status>
 </test>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20140816 11:44:31.168" starttime="20140816 11:44:16.892"></status>
+<status status="PASS" endtime="20140816 12:11:39.165" starttime="20140816 12:10:59.844"></status>
 </suite>
 <statistics>
 <total>
@@ -57,7 +104,6 @@
 <stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
-<stat info="" links="" doc="" combined="" pass="1" fail="0">ebola</stat>
 </tag>
 <suite>
 <stat fail="0" pass="1" id="s1" name="Search Ebol">Search Ebol</stat>
