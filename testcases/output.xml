@@ -1,102 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20140816 12:10:59.841" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
-<suite source="E:\projects\Robot\ATDDWithRobotFramwork\testcases\search_ebol.txt" id="s1" name="Search Ebol">
-<test id="s1-t1" name="ค้นหาข้อมูลจาก My Web Go">
-<kw type="kw" name="ค้นหาข้อมูลจาก">
+<robot generated="20140816 14:26:40.610" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<suite source="E:\projects\Robot\ATDDWithRobotFramwork\testcases\robot_scripts.txt" id="s1" name="Robot Scripts">
+<test id="s1-t1" name="Demo">
+<kw type="kw" name="@{my_words} = BuiltIn.Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>Hello</arg>
+<arg>Robot</arg>
+</arguments>
+<msg timestamp="20140816 14:26:40.725" level="INFO">@{my_words} = [ Hello | Robot ]</msg>
+<status status="PASS" endtime="20140816 14:26:40.724" starttime="20140816 14:26:40.723"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${my_words} \n</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:26:40.731" level="INFO">[u'Hello', u'Robot'] 
+</msg>
+<status status="PASS" endtime="20140816 14:26:40.731" starttime="20140816 14:26:40.729"></status>
+</kw>
+<kw type="kw" name="${length_of_my_words} = BuiltIn.Get Length">
+<doc>Returns and logs the length of the given item.</doc>
+<arguments>
+<arg>${my_words}</arg>
+</arguments>
+<msg timestamp="20140816 14:26:40.734" level="INFO">Length is 2</msg>
+<msg timestamp="20140816 14:26:40.734" level="INFO">${length_of_my_words} = 2</msg>
+<status status="PASS" endtime="20140816 14:26:40.734" starttime="20140816 14:26:40.732"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${length_of_my_words} \n</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:26:40.737" level="INFO">2 
+</msg>
+<status status="PASS" endtime="20140816 14:26:40.737" starttime="20140816 14:26:40.735"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Length Should Be">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${my_words}</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20140816 14:26:40.739" level="INFO">Length is 2</msg>
+<status status="PASS" endtime="20140816 14:26:40.740" starttime="20140816 14:26:40.738"></status>
+</kw>
+<kw type="for" name="${world} IN [ @{my_words} ]">
 <doc></doc>
 <arguments>
-<arg>อีโบลา</arg>
-<arg>อีโบลา</arg>
 </arguments>
-<kw type="kw" name="Selenium2Library.Open Browser">
-<doc>Opens a new browser instance to given URL.</doc>
-<arguments>
-<arg>${URL}</arg>
-</arguments>
-<msg timestamp="20140816 12:11:00.619" level="INFO">Opening browser 'firefox' to base url 'http://localhost:4399/'</msg>
-<status status="PASS" endtime="20140816 12:11:19.712" starttime="20140816 12:11:00.618"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Input Text">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>id=keysearch</arg>
-<arg>${keysearch}</arg>
-</arguments>
-<msg timestamp="20140816 12:11:19.715" level="INFO">Typing text 'อีโบลา' into text field 'id=keysearch'</msg>
-<status status="PASS" endtime="20140816 12:11:20.653" starttime="20140816 12:11:19.713"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Click Button">
-<doc>Clicks a button identified by `locator`.</doc>
-<arguments>
-<arg>id=go</arg>
-</arguments>
-<msg timestamp="20140816 12:11:20.655" level="INFO">Clicking button 'id=go'.</msg>
-<status status="PASS" endtime="20140816 12:11:23.393" starttime="20140816 12:11:20.655"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains">
-<doc>Waits until `text` appears on current page.</doc>
-<arguments>
-<arg>${expected result}</arg>
-</arguments>
-<status status="PASS" endtime="20140816 12:11:23.439" starttime="20140816 12:11:23.394"></status>
-</kw>
-<status status="PASS" endtime="20140816 12:11:23.439" starttime="20140816 12:11:00.615"></status>
-</kw>
-<kw type="kw" name="ค้นหาข้อมูลจาก">
+<kw type="foritem" name="${world} = Hello">
 <doc></doc>
 <arguments>
-<arg>ebola</arg>
-<arg>ebola</arg>
 </arguments>
-<kw type="kw" name="Selenium2Library.Open Browser">
-<doc>Opens a new browser instance to given URL.</doc>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${URL}</arg>
+<arg>${world} \n</arg>
+<arg>console=True</arg>
 </arguments>
-<msg timestamp="20140816 12:11:23.444" level="INFO">Opening browser 'firefox' to base url 'http://localhost:4399/'</msg>
-<status status="PASS" endtime="20140816 12:11:36.765" starttime="20140816 12:11:23.443"></status>
+<msg timestamp="20140816 14:26:40.743" level="INFO">Hello 
+</msg>
+<status status="PASS" endtime="20140816 14:26:40.743" starttime="20140816 14:26:40.742"></status>
 </kw>
-<kw type="kw" name="Selenium2Library.Input Text">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>id=keysearch</arg>
-<arg>${keysearch}</arg>
-</arguments>
-<msg timestamp="20140816 12:11:36.768" level="INFO">Typing text 'ebola' into text field 'id=keysearch'</msg>
-<status status="PASS" endtime="20140816 12:11:37.251" starttime="20140816 12:11:36.767"></status>
+<status status="PASS" endtime="20140816 14:26:40.744" starttime="20140816 14:26:40.741"></status>
 </kw>
-<kw type="kw" name="Selenium2Library.Click Button">
-<doc>Clicks a button identified by `locator`.</doc>
-<arguments>
-<arg>id=go</arg>
-</arguments>
-<msg timestamp="20140816 12:11:37.254" level="INFO">Clicking button 'id=go'.</msg>
-<status status="PASS" endtime="20140816 12:11:38.317" starttime="20140816 12:11:37.253"></status>
-</kw>
-<kw type="kw" name="Selenium2Library.Wait Until Page Contains">
-<doc>Waits until `text` appears on current page.</doc>
-<arguments>
-<arg>${expected result}</arg>
-</arguments>
-<status status="PASS" endtime="20140816 12:11:38.377" starttime="20140816 12:11:38.320"></status>
-</kw>
-<status status="PASS" endtime="20140816 12:11:38.379" starttime="20140816 12:11:23.441"></status>
-</kw>
-<kw type="teardown" name="Selenium2Library.Close All Browsers">
-<doc>Closes all open browsers and resets the browser cache.</doc>
+<kw type="foritem" name="${world} = Robot">
+<doc></doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140816 12:11:39.158" starttime="20140816 12:11:38.382"></status>
+<kw type="kw" name="BuiltIn.Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${world} \n</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20140816 14:26:40.746" level="INFO">Robot 
+</msg>
+<status status="PASS" endtime="20140816 14:26:40.747" starttime="20140816 14:26:40.745"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:26:40.747" starttime="20140816 14:26:40.744"></status>
+</kw>
+<status status="PASS" endtime="20140816 14:26:40.747" starttime="20140816 14:26:40.740"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20140816 12:11:39.159" critical="yes" starttime="20140816 12:11:00.608"></status>
+<status status="PASS" endtime="20140816 14:26:40.748" critical="yes" starttime="20140816 14:26:40.720"></status>
 </test>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20140816 12:11:39.165" starttime="20140816 12:10:59.844"></status>
+<status status="PASS" endtime="20140816 14:26:40.750" starttime="20140816 14:26:40.611"></status>
 </suite>
 <statistics>
 <total>
@@ -106,7 +105,7 @@
 <tag>
 </tag>
 <suite>
-<stat fail="0" pass="1" id="s1" name="Search Ebol">Search Ebol</stat>
+<stat fail="0" pass="1" id="s1" name="Robot Scripts">Robot Scripts</stat>
 </suite>
 </statistics>
 <errors>

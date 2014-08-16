@@ -1,0 +1,18 @@
+*** Setting ***
+
+*** Variables ***
+
+*** Testcases ***
+Demo
+  @{my_words} =  Create List  Hello  Robot
+  Log  ${my_words} \n  console=True
+
+  ${length_of_my_words} =  Get Length  ${my_words}
+  Log  ${length_of_my_words} \n  console=True
+
+  Length Should Be  ${my_words}  2
+
+  :FOR  ${world}  IN  @{my_words}
+  \  Log  ${world} \n  console=True
+
+*** Keywords ***

@@ -14,7 +14,14 @@ ${URL}  http://localhost:4399/
 *** Keywords ***
 ค้นหาข้อมูลจาก
   [Arguments]  ${keysearch}  ${expected result}
+  เปิด browser
+  ค้นหา  ${keysearch}
+  Wait Until Page Contains  ${expected result}
+
+เปิด browser
   Open Browser  ${URL}
+
+ค้นหา
+  [Arguments]  ${keysearch}
   Input Text  id=keysearch  ${keysearch}
   Click Button  id=go
-  Wait Until Page Contains  ${expected result}
