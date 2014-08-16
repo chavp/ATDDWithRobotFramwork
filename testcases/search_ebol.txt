@@ -1,0 +1,15 @@
+*** Setting ***
+Library  Selenium2Library
+Test Teardown  Close Browser
+
+*** Variables ***
+
+*** Testcases ***
+search ebola
+  [Tags]  ebola
+  Open Browser  http://localhost:4399/ 
+  Input Text  id=keysearch  ebola
+  Click Button  id=go
+  Wait Until Page Contains  ebola
+
+*** Keywords ***

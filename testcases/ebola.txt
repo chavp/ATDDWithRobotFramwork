@@ -1,0 +1,14 @@
+﻿*** Setting ***
+Library  Selenium2Library
+Test Teardown  Close Browser
+
+*** Variables ***
+
+*** Testcases ***
+search ebola
+  Open Browser  http://www.google.com  
+  Input Text  id=gbqfq  ebola
+  Click Button  id=gbqfb
+  Wait Until Page Contains  ebola
+
+*** Keywords ***

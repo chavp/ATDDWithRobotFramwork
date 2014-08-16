@@ -1,0 +1,5 @@
+1 setup phython
+2 install pip
+3 install phybot
+
+https://github.com/rtomac/robotframework-selenium2library

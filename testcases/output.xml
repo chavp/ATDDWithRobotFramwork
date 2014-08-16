@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140816 11:44:16.890" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<suite source="E:\projects\Robot\test\search_ebol.txt" id="s1" name="Search Ebol">
+<test id="s1-t1" name="search ebola">
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>http://localhost:4399/</arg>
+</arguments>
+<msg timestamp="20140816 11:44:17.489" level="INFO">Opening browser 'firefox' to base url 'http://localhost:4399/'</msg>
+<status status="PASS" endtime="20140816 11:44:29.537" starttime="20140816 11:44:17.488"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=keysearch</arg>
+<arg>ebola</arg>
+</arguments>
+<msg timestamp="20140816 11:44:29.541" level="INFO">Typing text 'ebola' into text field 'id=keysearch'</msg>
+<status status="PASS" endtime="20140816 11:44:30.177" starttime="20140816 11:44:29.539"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=go</arg>
+</arguments>
+<msg timestamp="20140816 11:44:30.181" level="INFO">Clicking button 'id=go'.</msg>
+<status status="PASS" endtime="20140816 11:44:30.782" starttime="20140816 11:44:30.179"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>ebola</arg>
+</arguments>
+<status status="PASS" endtime="20140816 11:44:30.828" starttime="20140816 11:44:30.784"></status>
+</kw>
+<kw type="teardown" name="Selenium2Library.Close Browser">
+<doc>Closes the current browser.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140816 11:44:31.160" starttime="20140816 11:44:30.830"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>ebola</tag>
+</tags>
+<status status="PASS" endtime="20140816 11:44:31.161" critical="yes" starttime="20140816 11:44:17.485"></status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="PASS" endtime="20140816 11:44:31.168" starttime="20140816 11:44:16.892"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat info="" links="" doc="" combined="" pass="1" fail="0">ebola</stat>
+</tag>
+<suite>
+<stat fail="0" pass="1" id="s1" name="Search Ebol">Search Ebol</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
