@@ -1,113 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20140816 14:26:40.610" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
-<suite source="E:\projects\Robot\ATDDWithRobotFramwork\testcases\robot_scripts.txt" id="s1" name="Robot Scripts">
-<test id="s1-t1" name="Demo">
-<kw type="kw" name="@{my_words} = BuiltIn.Create List">
-<doc>Returns a list containing given items.</doc>
+<robot generated="20140816 17:16:05.245" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<suite source="E:\projects\Robot\ATDDWithRobotFramwork\testcases\tarad_order_testcases.txt" id="s1" name="Tarad Order Testcases">
+<test id="s1-t1" name="Simple Order 6126300 Items">
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
 <arguments>
-<arg>Hello</arg>
-<arg>Robot</arg>
+<arg>${TARAD_URL}</arg>
 </arguments>
-<msg timestamp="20140816 14:26:40.725" level="INFO">@{my_words} = [ Hello | Robot ]</msg>
-<status status="PASS" endtime="20140816 14:26:40.724" starttime="20140816 14:26:40.723"></status>
+<msg timestamp="20140816 17:16:05.798" level="INFO">Opening browser 'firefox' to base url 'http://www.tarad.com/product/6126300'</msg>
+<status status="PASS" endtime="20140816 17:16:24.131" starttime="20140816 17:16:05.797"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains">
+<doc>Waits until `text` appears on current page.</doc>
 <arguments>
-<arg>${my_words} \n</arg>
-<arg>console=True</arg>
+<arg>990</arg>
 </arguments>
-<msg timestamp="20140816 14:26:40.731" level="INFO">[u'Hello', u'Robot'] 
-</msg>
-<status status="PASS" endtime="20140816 14:26:40.731" starttime="20140816 14:26:40.729"></status>
+<status status="PASS" endtime="20140816 17:16:24.329" starttime="20140816 17:16:24.133"></status>
 </kw>
-<kw type="kw" name="${length_of_my_words} = BuiltIn.Get Length">
-<doc>Returns and logs the length of the given item.</doc>
+<kw type="kw" name="Selenium2Library.Select Radio Button">
+<doc>Sets selection of radio button group identified by `group_name` to `value`.</doc>
 <arguments>
-<arg>${my_words}</arg>
+<arg>option_id</arg>
+<arg>169991</arg>
 </arguments>
-<msg timestamp="20140816 14:26:40.734" level="INFO">Length is 2</msg>
-<msg timestamp="20140816 14:26:40.734" level="INFO">${length_of_my_words} = 2</msg>
-<status status="PASS" endtime="20140816 14:26:40.734" starttime="20140816 14:26:40.732"></status>
+<msg timestamp="20140816 17:16:24.330" level="INFO">Selecting '169991' from radio button 'option_id'.</msg>
+<status status="PASS" endtime="20140816 17:16:24.852" starttime="20140816 17:16:24.329"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
+<kw type="kw" name="Selenium2Library.Select From List">
+<doc>Selects `*items` from list identified by `locator`</doc>
 <arguments>
-<arg>${length_of_my_words} \n</arg>
-<arg>console=True</arg>
+<arg>id=product_qty</arg>
+<arg>5</arg>
 </arguments>
-<msg timestamp="20140816 14:26:40.737" level="INFO">2 
-</msg>
-<status status="PASS" endtime="20140816 14:26:40.737" starttime="20140816 14:26:40.735"></status>
+<msg timestamp="20140816 17:16:24.854" level="INFO">Selecting option(s) '5' from list 'id=product_qty'.</msg>
+<status status="PASS" endtime="20140816 17:16:25.738" starttime="20140816 17:16:24.853"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Length Should Be">
-<doc>Verifies that the length of the given item is correct.</doc>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
 <arguments>
-<arg>${my_words}</arg>
+<arg>id=f_buy</arg>
+</arguments>
+<msg timestamp="20140816 17:16:25.741" level="INFO">Clicking button 'id=f_buy'.</msg>
+<status status="PASS" endtime="20140816 17:16:26.534" starttime="20140816 17:16:25.739"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=btn-payment</arg>
+</arguments>
+<status status="PASS" endtime="20140816 17:16:34.444" starttime="20140816 17:16:26.535"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="flyout_cart"]/div[7]/a</arg>
+</arguments>
+<msg timestamp="20140816 17:16:34.446" level="INFO">Clicking element '//*[@id="flyout_cart"]/div[7]/a'.</msg>
+<status status="PASS" endtime="20140816 17:16:34.887" starttime="20140816 17:16:34.445"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>ลูกค้าใหม่</arg>
+</arguments>
+<status status="PASS" endtime="20140816 17:16:50.553" starttime="20140816 17:16:34.888"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="login-frm-guest"]/fieldset/div[4]/button</arg>
+</arguments>
+<msg timestamp="20140816 17:16:50.556" level="INFO">Clicking element '//*[@id="login-frm-guest"]/fieldset/div[4]/button'.</msg>
+<status status="PASS" endtime="20140816 17:16:59.283" starttime="20140816 17:16:50.555"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=counter-service</arg>
+</arguments>
+<status status="PASS" endtime="20140816 17:16:59.374" starttime="20140816 17:16:59.284"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="counter-service"]/a</arg>
+</arguments>
+<msg timestamp="20140816 17:16:59.375" level="INFO">Clicking element '//*[@id="counter-service"]/a'.</msg>
+<status status="PASS" endtime="20140816 17:16:59.769" starttime="20140816 17:16:59.375"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=next-btn</arg>
+</arguments>
+<msg timestamp="20140816 17:16:59.771" level="INFO">Clicking button 'id=next-btn'.</msg>
+<status status="PASS" endtime="20140816 17:17:00.319" starttime="20140816 17:16:59.770"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>4,950.00</arg>
+</arguments>
+<status status="PASS" endtime="20140816 17:17:00.428" starttime="20140816 17:17:00.321"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=next-btn</arg>
+</arguments>
+<status status="PASS" endtime="20140816 17:17:00.481" starttime="20140816 17:17:00.430"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Speed">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<status status="PASS" endtime="20140816 17:17:00.483" starttime="20140816 17:17:00.482"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Button">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>id=next-btn</arg>
+</arguments>
+<msg timestamp="20140816 17:17:00.484" level="INFO">Clicking button 'id=next-btn'.</msg>
+<status status="PASS" endtime="20140816 17:17:17.132" starttime="20140816 17:17:00.483"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Set Selenium Speed">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.5</arg>
+</arguments>
+<status status="PASS" endtime="20140816 17:17:17.134" starttime="20140816 17:17:17.133"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=send_firstname</arg>
+<arg>DD</arg>
+</arguments>
+<msg timestamp="20140816 17:17:17.135" level="INFO">Typing text 'DD' into text field 'id=send_firstname'</msg>
+<status status="PASS" endtime="20140816 17:17:18.950" starttime="20140816 17:17:17.134"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=send_lastname</arg>
+<arg>DD</arg>
+</arguments>
+<msg timestamp="20140816 17:17:18.952" level="INFO">Typing text 'DD' into text field 'id=send_lastname'</msg>
+<status status="PASS" endtime="20140816 17:17:20.704" starttime="20140816 17:17:18.951"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=send_address</arg>
+<arg>DDDD</arg>
+</arguments>
+<msg timestamp="20140816 17:17:20.706" level="INFO">Typing text 'DDDD' into text field 'id=send_address'</msg>
+<status status="PASS" endtime="20140816 17:17:22.457" starttime="20140816 17:17:20.705"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Select From List By Index">
+<doc>Selects `*indexes` from list identified by `locator`</doc>
+<arguments>
+<arg>send_province</arg>
 <arg>2</arg>
 </arguments>
-<msg timestamp="20140816 14:26:40.739" level="INFO">Length is 2</msg>
-<status status="PASS" endtime="20140816 14:26:40.740" starttime="20140816 14:26:40.738"></status>
+<msg timestamp="20140816 17:17:22.458" level="INFO">Selecting index(es) '2' from list 'send_province'.</msg>
+<status status="PASS" endtime="20140816 17:17:27.979" starttime="20140816 17:17:22.458"></status>
 </kw>
-<kw type="for" name="${world} IN [ @{my_words} ]">
-<doc></doc>
+<kw type="kw" name="Selenium2Library.Set Selenium Speed">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
 <arguments>
+<arg>2</arg>
 </arguments>
-<kw type="foritem" name="${world} = Hello">
-<doc></doc>
+<status status="PASS" endtime="20140816 17:17:27.981" starttime="20140816 17:17:27.980"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Select From List By Index">
+<doc>Selects `*indexes` from list identified by `locator`</doc>
 <arguments>
+<arg>send_city</arg>
+<arg>2</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${world} \n</arg>
-<arg>console=True</arg>
-</arguments>
-<msg timestamp="20140816 14:26:40.743" level="INFO">Hello 
-</msg>
-<status status="PASS" endtime="20140816 14:26:40.743" starttime="20140816 14:26:40.742"></status>
-</kw>
-<status status="PASS" endtime="20140816 14:26:40.744" starttime="20140816 14:26:40.741"></status>
-</kw>
-<kw type="foritem" name="${world} = Robot">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${world} \n</arg>
-<arg>console=True</arg>
-</arguments>
-<msg timestamp="20140816 14:26:40.746" level="INFO">Robot 
-</msg>
-<status status="PASS" endtime="20140816 14:26:40.747" starttime="20140816 14:26:40.745"></status>
-</kw>
-<status status="PASS" endtime="20140816 14:26:40.747" starttime="20140816 14:26:40.744"></status>
-</kw>
-<status status="PASS" endtime="20140816 14:26:40.747" starttime="20140816 14:26:40.740"></status>
-</kw>
-<doc></doc>
-<tags>
-</tags>
-<status status="PASS" endtime="20140816 14:26:40.748" critical="yes" starttime="20140816 14:26:40.720"></status>
-</test>
-<doc></doc>
-<metadata>
-</metadata>
-<status status="PASS" endtime="20140816 14:26:40.750" starttime="20140816 14:26:40.611"></status>
-</suite>
-<statistics>
-<total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
-</total>
-<tag>
-</tag>
-<suite>
-<stat fail="0" pass="1" id="s1" name="Robot Scripts">Robot Scripts</stat>
-</suite>
-</statistics>
-<errors>
-</errors>
-</robot>
+<msg timestamp="20140816 17:17:27.982" level="INF

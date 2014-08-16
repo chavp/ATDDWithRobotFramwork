@@ -1,0 +1,43 @@
+*** Setting ***
+Library  Selenium2Library
+#Test Teardown  Close All Browsers
+
+*** Variables ***
+${TARAD_URL}  http://www.tarad.com/product/6126300
+
+*** Testcases ***
+Simple Order 6126300 Items
+  Open Browser  ${TARAD_URL}
+  Wait Until Page Contains  990
+  Select Radio Button  option_id  169991
+  Select From List  id=product_qty  5
+  Click Button  id=f_buy
+  Wait Until Page Contains Element  id=btn-payment
+  Click Element  //*[@id="flyout_cart"]/div[7]/a
+  Wait Until Page Contains  ลูกค้าใหม่
+  Click Element  //*[@id="login-frm-guest"]/fieldset/div[4]/button
+  Wait Until Page Contains Element  id=counter-service
+  Click Element  //*[@id="counter-service"]/a
+  Click Button  id=next-btn
+  Wait Until Page Contains  4,950.00
+  Wait Until Page Contains Element  id=next-btn
+  Set Selenium Speed  3
+  Click Button  id=next-btn
+  Set Selenium Speed  0.5
+  Input Text  id=send_firstname  DD
+  Input Text  id=send_lastname  DD
+  Input Text  id=send_address  DDDD
+  Select From List By Index  send_province  2
+  Set Selenium Speed  2
+  Select From List By Index  send_city  2
+  Input Text  id=send_district  สะพานสูง
+  Input Text  id=send_email  DD@dd.com
+  Input Text  id=send_mobile  0812598962
+  Click Element  id=next-btn
+  Set Selenium Speed  0.5
+  Page Should Contain Element  //*[@id="table-row-product-6126300"]/td[3]  990.00
+  Page Should Contain Element  //*[@id="table-row-product-6126300"]/td[4]  5
+  Page Should Contain Element  //*[@id="table-row-product-6126300"]/td[6]  4,950.00
+  #Click Element  id=next-btn
+
+*** Keywords ***
