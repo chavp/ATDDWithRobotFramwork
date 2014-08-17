@@ -21,7 +21,7 @@ Simple Order 6126300 Items
   Click Button  id=next-btn
   Wait Until Page Contains  4,950.00
   Wait Until Page Contains Element  id=next-btn
-  Set Selenium Speed  3
+  Set Selenium Speed  4
   Click Button  id=next-btn
   Set Selenium Speed  0.5
   Input Text  id=send_firstname  DD

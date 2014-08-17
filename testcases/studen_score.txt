@@ -1,0 +1,22 @@
+﻿*** Setting ***
+
+*** Variables ***
+
+*** Testcases ***
+Do Score
+    [Template]    Calculate scores
+    80    A
+    70    B
+    60    C
+    50    D
+    40    F
+
+*** Keywords ***
+Calculate scores
+    [Arguments]    ${score}    ${expected grade}
+    ${real grade} =    Set Variable If    ${score} >= 80    A
+    ...                                   ${score} >= 70    B
+    ...                                   ${score} >= 60    C
+    ...                                   ${score} >= 50    D
+    ...                                   ${score} >= 40    F
+    Should be equal    ${real grade}    ${expected grade}
