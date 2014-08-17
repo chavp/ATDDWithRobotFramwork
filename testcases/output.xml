@@ -1,316 +1,578 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20140817 09:24:01.396" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
-<suite source="E:\projects\Robot\ATDDWithRobotFramwork\testcases\studen_score.txt" id="s1" name="Studen Score">
-<test id="s1-t1" name="Do Score">
-<kw type="kw" name="Calculate scores">
+<robot generated="20140817 14:24:08.156" generator="Robot 2.8.5 (Python 2.7.8 on win32)">
+<suite source="E:\projects\Robot\ATDDWithRobotFramwork\testcases\up1_table_07.txt" id="s1" name="Up1 Table 07">
+<test id="s1-t1" name="Paging">
+<kw type="kw" name="Assert Paging">
 <doc></doc>
 <arguments>
-<arg>80</arg>
-<arg>A</arg>
+<arg>2</arg>
+<arg>4</arg>
 </arguments>
-<kw type="kw" name="${real grade} = BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
 <arguments>
-<arg>${score} &gt;= 80</arg>
-<arg>A</arg>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20140817 09:24:01.513" level="INFO">${real grade} = A</msg>
-<status status="PASS" endtime="20140817 09:24:01.513" starttime="20140817 09:24:01.511"></status>
+<msg timestamp="20140817 14:24:08.805" level="INFO">Opening browser 'ff' to base url 'http://up1-table.herokuapp.com/'</msg>
+<status status="PASS" endtime="20140817 14:24:27.971" starttime="20140817 14:24:08.803"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
+<kw type="kw" name="${targetPage} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
 <arguments>
-<arg>${real grade}</arg>
-<arg>${expected grade}</arg>
+<arg>${targetPage}+2</arg>
 </arguments>
-<msg timestamp="20140817 09:24:01.515" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20140817 09:24:01.515" starttime="20140817 09:24:01.514"></status>
+<msg timestamp="20140817 14:24:27.974" level="INFO">${targetPage} = 4</msg>
+<status status="PASS" endtime="20140817 14:24:27.974" starttime="20140817 14:24:27.972"></status>
 </kw>
-<status status="PASS" endtime="20140817 09:24:01.516" starttime="20140817 09:24:01.509"></status>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:28.123" starttime="20140817 14:24:27.975"></status>
 </kw>
-<kw type="kw" name="Calculate scores">
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a</arg>
+</arguments>
+<msg timestamp="20140817 14:24:28.125" level="INFO">Clicking element '//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[4]/a'.</msg>
+<status status="PASS" endtime="20140817 14:24:28.528" starttime="20140817 14:24:28.124"></status>
+</kw>
+<kw type="kw" name="${lastPageIndex} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>2+${totalPage}+2</arg>
+</arguments>
+<msg timestamp="20140817 14:24:28.532" level="INFO">${lastPageIndex} = 8</msg>
+<status status="PASS" endtime="20140817 14:24:28.531" starttime="20140817 14:24:28.530"></status>
+</kw>
+<kw type="kw" name="${nextPageIndex} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${lastPageIndex}-1</arg>
+</arguments>
+<msg timestamp="20140817 14:24:28.534" level="INFO">${nextPageIndex} = 7</msg>
+<status status="PASS" endtime="20140817 14:24:28.534" starttime="20140817 14:24:28.532"></status>
+</kw>
+<kw type="kw" name="${liFirstPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[1]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:28.627" level="INFO">${liFirstPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:28.627" starttime="20140817 14:24:28.535"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liFirstPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:28.629" starttime="20140817 14:24:28.628"></status>
+</kw>
+<kw type="kw" name="${liPrevPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[2]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:28.711" level="INFO">${liPrevPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:28.710" starttime="20140817 14:24:28.630"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liPrevPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:28.712" starttime="20140817 14:24:28.711"></status>
+</kw>
+<kw type="kw" name="${maxPage} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${lastPageIndex}-1</arg>
+</arguments>
+<msg timestamp="20140817 14:24:28.715" level="INFO">${maxPage} = 7</msg>
+<status status="PASS" endtime="20140817 14:24:28.714" starttime="20140817 14:24:28.713"></status>
+</kw>
+<kw type="for" name="${INDEX} IN RANGE [ 3 | ${maxPage} ]">
 <doc></doc>
 <arguments>
-<arg>70</arg>
-<arg>B</arg>
 </arguments>
-<kw type="kw" name="${real grade} = BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
-<arguments>
-<arg>${score} &gt;= 80</arg>
-<arg>A</arg>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
-</arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
-<arguments>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
-</arguments>
-<status status="PASS" endtime="20140817 09:24:01.521" starttime="20140817 09:24:01.520"></status>
-</kw>
-<msg timestamp="20140817 09:24:01.522" level="INFO">${real grade} = B</msg>
-<status status="PASS" endtime="20140817 09:24:01.521" starttime="20140817 09:24:01.518"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
-<arguments>
-<arg>${real grade}</arg>
-<arg>${expected grade}</arg>
-</arguments>
-<msg timestamp="20140817 09:24:01.523" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20140817 09:24:01.524" starttime="20140817 09:24:01.522"></status>
-</kw>
-<status status="PASS" endtime="20140817 09:24:01.524" starttime="20140817 09:24:01.516"></status>
-</kw>
-<kw type="kw" name="Calculate scores">
+<kw type="foritem" name="${INDEX} = 3">
 <doc></doc>
 <arguments>
-<arg>60</arg>
-<arg>C</arg>
 </arguments>
-<kw type="kw" name="${real grade} = BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
 <arguments>
-<arg>${score} &gt;= 80</arg>
-<arg>A</arg>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20140817 14:24:28.789" level="INFO">${liPageAttr} = footable-page</msg>
+<status status="PASS" endtime="20140817 14:24:28.789" starttime="20140817 14:24:28.716"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
 <arguments>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
 <arguments>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
 </arguments>
-<status status="PASS" endtime="20140817 09:24:01.530" starttime="20140817 09:24:01.529"></status>
+<status status="PASS" endtime="20140817 14:24:28.793" starttime="20140817 14:24:28.792"></status>
 </kw>
-<status status="PASS" endtime="20140817 09:24:01.531" starttime="20140817 09:24:01.528"></status>
+<status status="PASS" endtime="20140817 14:24:28.793" starttime="20140817 14:24:28.790"></status>
 </kw>
-<msg timestamp="20140817 09:24:01.532" level="INFO">${real grade} = C</msg>
-<status status="PASS" endtime="20140817 09:24:01.531" starttime="20140817 09:24:01.526"></status>
+<status status="PASS" endtime="20140817 14:24:28.793" starttime="20140817 14:24:28.715"></status>
 </kw>
-<kw type="kw" name="BuiltIn.Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
-<arguments>
-<arg>${real grade}</arg>
-<arg>${expected grade}</arg>
-</arguments>
-<msg timestamp="20140817 09:24:01.533" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20140817 09:24:01.534" starttime="20140817 09:24:01.532"></status>
-</kw>
-<status status="PASS" endtime="20140817 09:24:01.534" starttime="20140817 09:24:01.524"></status>
-</kw>
-<kw type="kw" name="Calculate scores">
+<kw type="foritem" name="${INDEX} = 4">
 <doc></doc>
 <arguments>
-<arg>50</arg>
-<arg>D</arg>
 </arguments>
-<kw type="kw" name="${real grade} = BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
 <arguments>
-<arg>${score} &gt;= 80</arg>
-<arg>A</arg>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20140817 14:24:28.875" level="INFO">${liPageAttr} = footable-page active</msg>
+<status status="PASS" endtime="20140817 14:24:28.875" starttime="20140817 14:24:28.794"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
 <arguments>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
 <arguments>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
-<arguments>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
-</arguments>
-<status status="PASS" endtime="20140817 09:24:01.542" starttime="20140817 09:24:01.541"></status>
+<status status="PASS" endtime="20140817 14:24:28.879" starttime="20140817 14:24:28.878"></status>
 </kw>
-<status status="PASS" endtime="20140817 09:24:01.542" starttime="20140817 09:24:01.539"></status>
+<status status="PASS" endtime="20140817 14:24:28.879" starttime="20140817 14:24:28.876"></status>
 </kw>
-<status status="PASS" endtime="20140817 09:24:01.542" starttime="20140817 09:24:01.538"></status>
+<status status="PASS" endtime="20140817 14:24:28.879" starttime="20140817 14:24:28.794"></status>
 </kw>
-<msg timestamp="20140817 09:24:01.543" level="INFO">${real grade} = D</msg>
-<status status="PASS" endtime="20140817 09:24:01.543" starttime="20140817 09:24:01.536"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
-<arguments>
-<arg>${real grade}</arg>
-<arg>${expected grade}</arg>
-</arguments>
-<msg timestamp="20140817 09:24:01.545" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20140817 09:24:01.545" starttime="20140817 09:24:01.544"></status>
-</kw>
-<status status="PASS" endtime="20140817 09:24:01.545" starttime="20140817 09:24:01.534"></status>
-</kw>
-<kw type="kw" name="Calculate scores">
+<kw type="foritem" name="${INDEX} = 5">
 <doc></doc>
 <arguments>
-<arg>40</arg>
-<arg>F</arg>
 </arguments>
-<kw type="kw" name="${real grade} = BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
 <arguments>
-<arg>${score} &gt;= 80</arg>
-<arg>A</arg>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<msg timestamp="20140817 14:24:28.960" level="INFO">${liPageAttr} = footable-page</msg>
+<status status="PASS" endtime="20140817 14:24:28.960" starttime="20140817 14:24:28.880"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
 <arguments>
-<arg>${score} &gt;= 70</arg>
-<arg>B</arg>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
 <arguments>
-<arg>${score} &gt;= 60</arg>
-<arg>C</arg>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" endtime="20140817 14:24:28.964" starttime="20140817 14:24:28.963"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:28.965" starttime="20140817 14:24:28.961"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:28.965" starttime="20140817 14:24:28.880"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 6">
+<doc></doc>
 <arguments>
-<arg>${score} &gt;= 50</arg>
-<arg>D</arg>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
 </arguments>
-<kw type="kw" name="BuiltIn.Set Variable If">
-<doc>Sets variable based on the given condition.</doc>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
 <arguments>
-<arg>${score} &gt;= 40</arg>
-<arg>F</arg>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
 </arguments>
-<status status="PASS" endtime="20140817 09:24:01.555" starttime="20140817 09:24:01.554"></status>
+<msg timestamp="20140817 14:24:29.045" level="INFO">${liPageAttr} = footable-page</msg>
+<status status="PASS" endtime="20140817 14:24:29.044" starttime="20140817 14:24:28.966"></status>
 </kw>
-<status status="PASS" endtime="20140817 09:24:01.555" starttime="20140817 09:24:01.553"></status>
-</kw>
-<status status="PASS" endtime="20140817 09:24:01.556" starttime="20140817 09:24:01.551"></status>
-</kw>
-<status status="PASS" endtime="20140817 09:24:01.556" starttime="20140817 09:24:01.550"></status>
-</kw>
-<msg timestamp="20140817 09:24:01.557" level="INFO">${real grade} = F</msg>
-<status status="PASS" endtime="20140817 09:24:01.556" starttime="20140817 09:24:01.548"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Should Be Equal">
-<doc>Fails if the given objects are unequal.</doc>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
 <arguments>
-<arg>${real grade}</arg>
-<arg>${expected grade}</arg>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
 </arguments>
-<msg timestamp="20140817 09:24:01.558" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status status="PASS" endtime="20140817 09:24:01.559" starttime="20140817 09:24:01.557"></status>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:29.049" starttime="20140817 14:24:29.048"></status>
 </kw>
-<status status="PASS" endtime="20140817 09:24:01.559" starttime="20140817 09:24:01.546"></status>
+<status status="PASS" endtime="20140817 14:24:29.049" starttime="20140817 14:24:29.046"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:29.050" starttime="20140817 14:24:28.965"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:29.050" starttime="20140817 14:24:28.715"></status>
+</kw>
+<kw type="kw" name="${liNextPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${nextPageIndex}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:29.126" level="INFO">${liNextPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:29.126" starttime="20140817 14:24:29.050"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liNextPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:29.129" starttime="20140817 14:24:29.127"></status>
+</kw>
+<kw type="kw" name="${liLastPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${lastPageIndex}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:29.212" level="INFO">${liLastPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:29.212" starttime="20140817 14:24:29.130"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liLastPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:29.214" starttime="20140817 14:24:29.213"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:29.214" starttime="20140817 14:24:08.801"></status>
+</kw>
+<kw type="kw" name="Assert Paging">
+<doc></doc>
+<arguments>
+<arg>3</arg>
+<arg>4</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20140817 14:24:29.219" level="INFO">Opening browser 'ff' to base url 'http://up1-table.herokuapp.com/'</msg>
+<status status="PASS" endtime="20140817 14:24:45.653" starttime="20140817 14:24:29.218"></status>
+</kw>
+<kw type="kw" name="${targetPage} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${targetPage}+2</arg>
+</arguments>
+<msg timestamp="20140817 14:24:45.656" level="INFO">${targetPage} = 5</msg>
+<status status="PASS" endtime="20140817 14:24:45.655" starttime="20140817 14:24:45.654"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:45.793" starttime="20140817 14:24:45.657"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a</arg>
+</arguments>
+<msg timestamp="20140817 14:24:45.794" level="INFO">Clicking element '//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[5]/a'.</msg>
+<status status="PASS" endtime="20140817 14:24:46.128" starttime="20140817 14:24:45.793"></status>
+</kw>
+<kw type="kw" name="${lastPageIndex} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>2+${totalPage}+2</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.131" level="INFO">${lastPageIndex} = 8</msg>
+<status status="PASS" endtime="20140817 14:24:46.131" starttime="20140817 14:24:46.129"></status>
+</kw>
+<kw type="kw" name="${nextPageIndex} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${lastPageIndex}-1</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.135" level="INFO">${nextPageIndex} = 7</msg>
+<status status="PASS" endtime="20140817 14:24:46.134" starttime="20140817 14:24:46.132"></status>
+</kw>
+<kw type="kw" name="${liFirstPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[1]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.225" level="INFO">${liFirstPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:46.224" starttime="20140817 14:24:46.136"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liFirstPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.227" starttime="20140817 14:24:46.226"></status>
+</kw>
+<kw type="kw" name="${liPrevPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[2]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.315" level="INFO">${liPrevPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:46.315" starttime="20140817 14:24:46.228"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liPrevPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.317" starttime="20140817 14:24:46.316"></status>
+</kw>
+<kw type="kw" name="${maxPage} = BuiltIn.Evaluate">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${lastPageIndex}-1</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.319" level="INFO">${maxPage} = 7</msg>
+<status status="PASS" endtime="20140817 14:24:46.318" starttime="20140817 14:24:46.317"></status>
+</kw>
+<kw type="for" name="${INDEX} IN RANGE [ 3 | ${maxPage} ]">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="foritem" name="${INDEX} = 3">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.401" level="INFO">${liPageAttr} = footable-page</msg>
+<status status="PASS" endtime="20140817 14:24:46.401" starttime="20140817 14:24:46.320"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.405" starttime="20140817 14:24:46.404"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.405" starttime="20140817 14:24:46.402"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.406" starttime="20140817 14:24:46.319"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 4">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.481" level="INFO">${liPageAttr} = footable-page</msg>
+<status status="PASS" endtime="20140817 14:24:46.481" starttime="20140817 14:24:46.406"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.484" starttime="20140817 14:24:46.484"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.485" starttime="20140817 14:24:46.482"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.485" starttime="20140817 14:24:46.406"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 5">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.560" level="INFO">${liPageAttr} = footable-page active</msg>
+<status status="PASS" endtime="20140817 14:24:46.559" starttime="20140817 14:24:46.486"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Should Contain">
+<doc>Fails if `item1` does not contain `item2` one or more times.</doc>
+<arguments>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.563" starttime="20140817 14:24:46.562"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.563" starttime="20140817 14:24:46.560"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.564" starttime="20140817 14:24:46.485"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 6">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="${liPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.648" level="INFO">${liPageAttr} = footable-page</msg>
+<status status="PASS" endtime="20140817 14:24:46.648" starttime="20140817 14:24:46.564"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<arguments>
+<arg>${INDEX} == ${targetPage}</arg>
+<arg>Should Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+<arg>ELSE</arg>
+<arg>Should Not Contain</arg>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liPageAttr}</arg>
+<arg>active</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.652" starttime="20140817 14:24:46.651"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.652" starttime="20140817 14:24:46.649"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.652" starttime="20140817 14:24:46.564"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.652" starttime="20140817 14:24:46.319"></status>
+</kw>
+<kw type="kw" name="${liNextPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${nextPageIndex}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.733" level="INFO">${liNextPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:46.732" starttime="20140817 14:24:46.653"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liNextPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.735" starttime="20140817 14:24:46.734"></status>
+</kw>
+<kw type="kw" name="${liLastPageAttr} = Selenium2Library.Get Element Attribute">
+<doc>Return value of element attribute.</doc>
+<arguments>
+<arg>//*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${lastPageIndex}]@class</arg>
+</arguments>
+<msg timestamp="20140817 14:24:46.854" level="INFO">${liLastPageAttr} = footable-page-arrow</msg>
+<status status="PASS" endtime="20140817 14:24:46.854" starttime="20140817 14:24:46.736"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Should Not Contain">
+<doc>Fails if `item1` contains `item2` one or more times.</doc>
+<arguments>
+<arg>${liLastPageAttr}</arg>
+<arg>disabled</arg>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:46.856" starttime="20140817 14:24:46.855"></status>
+</kw>
+<status status="PASS" endtime="20140817 14:24:46.857" starttime="20140817 14:24:29.216"></status>
+</kw>
+<kw type="teardown" name="Selenium2Library.Close All Browsers">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<arguments>
+</arguments>
+<status status="PASS" endtime="20140817 14:24:47.340" starttime="20140817 14:24:46.859"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20140817 09:24:01.560" critical="yes" starttime="20140817 09:24:01.508"></status>
+<status status="PASS" endtime="20140817 14:24:47.341" critical="yes" starttime="20140817 14:24:08.798"></status>
 </test>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20140817 09:24:01.561" starttime="20140817 09:24:01.398"></status>
+<status status="PASS" endtime="20140817 14:24:47.346" starttime="20140817 14:24:08.158"></status>
 </suite>
 <statistics>
 <total>
@@ -320,7 +582,7 @@
 <tag>
 </tag>
 <suite>
-<stat fail="0" pass="1" id="s1" name="Studen Score">Studen Score</stat>
+<stat fail="0" pass="1" id="s1" name="Up1 Table 07">Up1 Table 07</stat>
 </suite>
 </statistics>
 <errors>

@@ -1,0 +1,40 @@
+*** Setting ***
+Library    Selenium2Library
+Test Teardown    Close All Browsers
+
+*** Variables ***
+${URL}    http://up1-table.herokuapp.com/
+${BROWSER}    gc
+
+*** Testcases ***
+Paging
+    [Template]    Assert Paging
+    2    4
+    3    4
+
+*** Keywords ***
+Assert Paging
+    [Arguments]    ${targetPage}    ${totalPage}
+    Open Browser    ${URL}    ${BROWSER}
+    ${targetPage} =    Evaluate    ${targetPage}+2
+    Wait Until Page Contains Element    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a
+    Click Element    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${targetPage}]/a
+    ${lastPageIndex} =    Evaluate    2+${totalPage}+2
+    ${nextPageIndex} =    Evaluate    ${lastPageIndex}-1
+    #Log  ${lastPageIndex}    console=True
+
+    ${liFirstPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[1]@class
+    Should Not Contain    ${liFirstPageAttr}    disabled
+    ${liPrevPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[2]@class
+    Should Not Contain    ${liPrevPageAttr}    disabled
+
+    ${maxPage} =    Evaluate    ${lastPageIndex}-1
+    :FOR    ${INDEX}    IN RANGE    3    ${maxPage}
+    \    ${liPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${INDEX}]@class
+    \    Run Keyword If    ${INDEX} == ${targetPage}    Should Contain    ${liPageAttr}    active
+    \    ...    ELSE    Should Not Contain    ${liPageAttr}    active
+
+    ${liNextPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${nextPageIndex}]@class
+    Should Not Contain    ${liNextPageAttr}    disabled
+    ${liLastPageAttr} =    Get Element Attribute    //*[@id="demo"]/table/tfoot/tr/td/div/ul/li[${lastPageIndex}]@class
+    Should Not Contain    ${liLastPageAttr}    disabled
